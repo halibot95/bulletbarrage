@@ -1,115 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BulletBarrage - Play the Ultimate Bullet Hell Shooter Online</title>
-  <meta name="description" content="Dive into BulletBarrage, an intense bullet hell shooter you can play online for free. Dodge, shoot, and survive the storm of bullets!" />
-  <meta name="keywords" content="BulletBarrage, bullet hell game, online shooter, arcade, web game, play now, free games" />
-  <link rel="canonical" href="https://bulletbarrage.online/" />
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#6366f1" />
-  <link rel="icon" href="/icon-192.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-</head>
-<body class="bg-white text-gray-800 font-sans">
-  <header class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white py-8 px-4 text-center shadow-md">
-    <h1 class="text-4xl md:text-5xl font-bold">BulletBarrage</h1>
-    <p class="mt-2 text-lg md:text-xl">Play the Ultimate Bullet Hell Shooter Online — Fast, Free, and Intense!</p>
-    <button onclick="scrollToGame()" class="mt-6 bg-white text-indigo-600 hover:bg-gray-100 font-semibold px-6 py-2 rounded-full shadow-lg transition">▶️ Play Now</button>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BulletBarrage - Free Online Shooting Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Play BulletBarrage - a thrilling browser-based shooting game where survival depends on your aim and agility."
+    />
+    <link rel="canonical" href="https://halibot95.github.io/bulletbarrage/" />
+    <link rel="icon" href="https://emoji.gg/assets/emoji/6790-pewpew.gif" />
 
-  <main class="max-w-5xl mx-auto px-4 py-8">
-    <section id="game-section" class="mb-10 scroll-mt-20">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-4">🎮 Game Preview</h2>
-      <div class="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
-        <iframe src="https://cloud.onlinegames.io/games/2025/unity/bulletbarrage/index-og.html" title="Play BulletBarrage Online" allowfullscreen class="w-full h-full" loading="lazy"></iframe>
-      </div>
-    </section>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-3 text-gray-900">⭐ Rate This Game</h2>
-      <div id="star-rating" class="flex gap-2 text-3xl cursor-pointer text-gray-300">
-        <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
-      </div>
-      <p id="rating-text" class="mt-2 text-sm text-gray-600"></p>
-    </section>
+    <!-- Google Analytics (Replace YOUR_ID with real ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-XXXXXXX') // Replace with your GA ID
+    </script>
+  </head>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">📣 Share with Friends</h2>
-      <div class="flex gap-4">
-        <a href="https://twitter.com/intent/tweet?text=Play%20BulletBarrage%20now!&url=https://bulletbarrage.online" target="_blank" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg shadow transition">🐦 Share on Twitter</a>
-        <a href="https://www.reddit.com/submit?url=https://bulletbarrage.online&title=Play%20BulletBarrage%20Online" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg shadow transition">👽 Share on Reddit</a>
-      </div>
-    </section>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <header class="text-center py-8 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+      <h1 class="text-4xl md:text-5xl font-bold">BulletBarrage</h1>
+      <p class="text-lg mt-2">Blast your way through waves of enemies in this free browser-based shooting game.</p>
+      <button
+        onclick="document.getElementById('game-section').scrollIntoView({behavior: 'smooth'})"
+        class="mt-6 px-6 py-3 rounded-xl bg-white text-blue-600 hover:bg-gray-200 font-semibold transition"
+      >
+        🎮 Play Now
+      </button>
+    </header>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">📝 About BulletBarrage</h2>
-      <p class="text-base md:text-lg leading-relaxed">BulletBarrage is a high-octane, fast-paced bullet hell shooter where your reflexes and accuracy are your only lifelines. Immerse yourself in a chaotic universe of enemy fire, neon explosions, and pixel-perfect dodges.</p>
-    </section>
+    <main class="px-4 md:px-12 max-w-5xl mx-auto">
+      <section class="my-10" id="game-section">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Play BulletBarrage Online</h2>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://html5.gamedistribution.com/bf4fc3ccf6c74c0d9d69dc5a3cf4c42d/?gd_sdk_referrer_url="
+            width="100%"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+            class="w-full rounded-xl shadow-lg"
+          ></iframe>
+        </div>
+      </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🚀 Key Features</h2>
-      <ul class="list-disc pl-6 text-base md:text-lg">
-        <li>Zero downloads – play instantly in your browser</li>
-        <li>Responsive controls and fluid gameplay</li>
-        <li>Mobile-friendly and fully optimized</li>
-        <li>Boss battles and intense challenge modes</li>
-        <li>Modern graphics powered by Unity</li>
-      </ul>
-    </section>
+      <section class="my-8">
+        <h2 class="text-xl font-semibold mb-2">Game Overview</h2>
+        <p class="mb-4">
+          BulletBarrage is an action-packed shooter that challenges your reflexes and strategy. Dodge enemies, pick up
+          power-ups, and survive as long as possible!
+        </p>
+        <ul class="list-disc pl-6">
+          <li>Fast-paced, addictive gameplay</li>
+          <li>No downloads or registration required</li>
+          <li>Works on desktop and mobile devices</li>
+        </ul>
+      </section>
 
-    <section class="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-inner mb-10">
-      <h2 class="text-xl font-semibold mb-2 text-gray-800">📱 Compatibility</h2>
-      <p>This game works on all devices. Use Chrome or Safari for the best experience. Just press play and enjoy!</p>
-    </section>
+      <section class="my-8">
+        <h2 class="text-xl font-semibold mb-2">Rate This Game</h2>
+        <div class="flex items-center gap-1 text-yellow-400 text-2xl" id="star-rating">
+          <button onclick="rate(1)">★</button>
+          <button onclick="rate(2)">★</button>
+          <button onclick="rate(3)">★</button>
+          <button onclick="rate(4)">★</button>
+          <button onclick="rate(5)">★</button>
+        </div>
+        <p class="mt-2 text-sm text-gray-600" id="rating-msg"></p>
+      </section>
 
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-4">💬 Comments</h2>
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = "bulletbarrage-home";
-        };
-        (function () {
-          var d = document, s = d.createElement('script');
-          s.src = 'https://YOUR-SHORTNAME.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </section>
-  </main>
+      <section class="my-8">
+        <h2 class="text-xl font-semibold mb-2">Share This Game</h2>
+        <div class="flex gap-4">
+          <a
+            href="https://twitter.com/intent/tweet?text=Play%20BulletBarrage%20now!%20https%3A%2F%2Fhalibot95.github.io%2Fbulletbarrage%2F"
+            target="_blank"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://reddit.com/submit?url=https%3A%2F%2Fhalibot95.github.io%2Fbulletbarrage%2F&title=BulletBarrage%20Online%20Shooting%20Game"
+            target="_blank"
+            class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl"
+          >
+            Reddit
+          </a>
+        </div>
+      </section>
 
-  <footer class="bg-gray-100 text-gray-600 text-sm text-center py-6">
-    &copy; 2025 BulletBarrage.online — All rights reserved.
-  </footer>
+      <footer class="text-center text-sm text-gray-500 py-6">
+        &copy; 2025 BulletBarrage Online. All rights reserved.
+      </footer>
+    </main>
 
-  <script>
-    function scrollToGame() {
-      document.getElementById('game-section').scrollIntoView({ behavior: 'smooth' });
-    }
-    function rate(stars) {
-      const ratingEl = document.getElementById('star-rating');
-      const starsEls = ratingEl.querySelectorAll('span');
-      starsEls.forEach((el, i) => {
-        el.classList.toggle('text-yellow-400', i < stars);
-        el.classList.toggle('text-gray-300', i >= stars);
-      });
-      document.getElementById('rating-text').textContent = `Thanks! You rated this game ${stars} star${stars > 1 ? 's' : ''}.`;
-    }
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(() => console.log("✅ Service Worker registered"));
-    }
-  </script>
-</body>
+    <script>
+      function rate(stars) {
+        const msg = document.getElementById('rating-msg')
+        msg.textContent = `Thanks for rating ${stars} star${stars > 1 ? 's' : ''}!`
+      }
+    </script>
+  </body>
 </html>
