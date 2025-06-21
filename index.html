@@ -3,158 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BulletBarrage - Play Free Online Action Game</title>
-    <meta name="description" content="Experience the ultimate bullet-hell action with BulletBarrage! Dive into intense online battles, dodge endless projectiles, and conquer challenging levels. Play now for free!">
-    <meta name="keywords" content="BulletBarrage, online game, action game, bullet-hell, free game, play online, arcade game, shooting game">
-
+    <title>Bullet Barrage - Unleash Mayhem in This Intense Online Shooter!</title>
+    <meta name="description" content="Experience Bullet Barrage, an exhilarating online game where you face waves of monsters in a fight for survival. Play now on PC and mobile!">
     <link rel="canonical" href="https://bulletbarrage.online/">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-red: #FF3B30;
+            --apple-orange: #FF9500;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+            --apple-dark-text: #1C1C1E;
+            --apple-light-text: #FFFFFF;
+            --apple-background: #FFFFFF;
+            --apple-card-background: #F2F2F7;
+        }
 
-    <meta property="og:title" content="BulletBarrage - Play Free Online Action Game">
-    <meta property="og:description" content="Experience the ultimate bullet-hell action with BulletBarrage! Dive into intense online battles, dodge endless projectiles, and conquer challenging levels. Play now for free!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bulletbarrage.online/">
-    <meta property="og:image" content="https://bulletbarrage.online/og-image.jpg"> <meta property="og:site_name" content="BulletBarrage">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style type="text/tailwindcss">
-        @layer base {
-            html {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --apple-background: #000000;
+                --apple-card-background: #1C1C1E;
+                --apple-dark-text: #FFFFFF;
+                --apple-light-text: #1C1C1E;
             }
         }
-        @layer components {
-            .apple-blue {
-                background-color: #007AFF; /* Apple Blue */
-            }
-            .apple-dark-blue {
-                background-color: #005AFF; /* Slightly darker for accents */
-            }
-            .apple-light-gray {
-                background-color: #F5F5F7; /* Apple Light Gray */
-            }
-            .apple-gray {
-                color: #8E8E93; /* Apple Gray Text */
-            }
-            .apple-dark-gray {
-                color: #1D1D1F; /* Apple Dark Gray Text */
-            }
-            .apple-black {
-                color: #000000;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--apple-background);
+            color: var(--apple-dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--apple-dark-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .header-bg {
+            background-color: var(--apple-blue);
+            color: var(--apple-light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .game-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background-color: var(--apple-card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .card {
+            background-color: var(--apple-card-background);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .button-primary {
+            background-color: var(--apple-blue);
+            color: var(--apple-light-text);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .button-primary:hover {
+            background-color: #0056B3; /* Darker blue for hover */
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
     </style>
 </head>
-<body class="font-sans antialiased text-apple-dark-gray bg-white">
-
-    <header class="bg-white shadow-sm py-4 px-6 md:px-12">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-apple-black">BulletBarrage</h1>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#game-overview" class="text-apple-dark-gray hover:text-apple-blue font-medium transition duration-300">About Game</a></li>
-                    <li><a href="#play-now" class="text-apple-dark-gray hover:text-apple-blue font-medium transition duration-300">Play Now</a></li>
-                    <li><a href="#features" class="text-apple-dark-gray hover:text-apple-blue font-medium transition duration-300">Features</a></li>
-                </ul>
-            </nav>
+<body>
+    <header class="header-bg">
+        <div class="container">
+            <h1 class="text-5xl font-bold mb-4">Bullet Barrage</h1>
+            <p class="text-xl font-light">Unleash Mayhem in This Intense Online Shooter!</p>
         </div>
     </header>
 
-    <main>
-        <section class="apple-blue text-white py-16 md:py-24 text-center">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Unleash the Storm: Play BulletBarrage Now!</h2>
-                <p class="text-lg md:text-xl mb-8 opacity-90">Experience the ultimate bullet-hell action! Dodge endless projectiles, master unique abilities, and dominate the leaderboard in this thrilling online game.</p>
-                <a href="#play-game-iframe" class="inline-block apple-dark-blue text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">Start Playing</a>
+    <main class="container my-8">
+        <section class="mb-8">
+            <div class="game-iframe-container">
+                <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" title="Bullet Barrage Online Game"></iframe>
+            </div>
+            <p class="text-center text-sm text-gray-600 mt-2">Having trouble loading the game? Ensure your browser is up-to-date and disable any ad-blockers.</p>
+        </section>
+
+        <hr class="my-8 border-t border-gray-300">
+
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">About Bullet Barrage</h2>
+            <div class="card">
+                <p class="text-lg"><strong>Bullet Barrage</strong> throws you into the heart of an unrelenting battle against hordes of monstrous enemies. As an elite survivor, your mission is simple yet brutal: eliminate every creature in your path and survive as long as possible.</p>
+                <p class="mt-4 text-lg">Featuring fast-paced action, intuitive controls, and a wide array of weapons and power-ups, Bullet Barrage offers an addictive gameplay experience for both casual players and seasoned veterans. Adapt your strategy, upgrade your arsenal, and conquer the leaderboard!</p>
             </div>
         </section>
 
-        <section id="play-game-iframe" class="py-12 md:py-16 bg-apple-light-gray">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-apple-black mb-8">Play BulletBarrage Online</h2>
-                <div class="relative w-full overflow-hidden" style="padding-top: 56.25%;"> <iframe
-                        src="https://cloud.onlinegames.io/games/2025/unity/bulletbarrage/index-og.html"
-                        title="BulletBarrage Online Game"
-                        loading="lazy"
-                        frameborder="0"
-                        allowfullscreen
-                        class="absolute top-0 left-0 w-full h-full border-0 rounded-lg shadow-2xl"
-                    ></iframe>
+        <hr class="my-8 border-t border-gray-300">
+
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">Game Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-2">Non-Stop Action</h3>
+                    <p>Engage in continuous combat against endless waves of diverse and challenging monsters.</p>
                 </div>
-                <p class="text-apple-gray mt-4 text-sm md:text-base">Having trouble? Try reloading the page or check your internet connection.</p>
-            </div>
-        </section>
-
-        <section id="game-overview" class="py-12 md:py-16 bg-white">
-            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-apple-black mb-6">About BulletBarrage: Your New Favorite Bullet-Hell Experience</h2>
-                    <p class="text-lg leading-relaxed mb-4">BulletBarrage is a high-octane online action game that thrusts players into a world of intense bullet-hell combat. Prepare to test your reflexes and strategic thinking as you navigate through a relentless onslaught of enemy projectiles.</p>
-                    <p class="text-lg leading-relaxed">Featuring dynamic levels, a diverse roster of characters with unique abilities, and a competitive leaderboard, BulletBarrage offers endless hours of thrilling gameplay. Whether you're a seasoned veteran of the genre or new to bullet-hell, this game provides an accessible yet challenging experience for everyone.</p>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-2">Dynamic Weaponry</h3>
+                    <p>Discover and wield a variety of unique weapons, each with its own strengths and upgrade paths.</p>
                 </div>
-                <div>
-                    <img src="https://via.placeholder.com/600x400?text=BulletBarrage+Gameplay" alt="BulletBarrage Gameplay Screenshot" class="rounded-lg shadow-xl w-full h-auto"> </div>
-            </div>
-        </section>
-
-        <section id="features" class="py-12 md:py-16 bg-apple-light-gray">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-apple-black text-center mb-10">Key Features of BulletBarrage</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <h3 class="text-xl font-semibold text-apple-black mb-2">Fast-Paced Action</h3>
-                        <p class="text-apple-gray">Dive into exhilarating, high-speed combat where every second counts. Keep your reflexes sharp!</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v18"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.882 17.519c-.18.613-.68 1.12-1.32 1.39C10.778 19.56 9 18.5 9 16.5c0-1.037.747-1.928 1.843-2.185m.074-.016c.115-.022.23-.042.348-.06M12 10.5h.008v.008H12z"></path></svg>
-                        <h3 class="text-xl font-semibold text-apple-black mb-2">Unique Characters</h3>
-                        <p class="text-apple-gray">Unlock and master a variety of characters, each with distinct abilities and playstyles.</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.325 1.107l1.519 4.674c.3.921-.755 1.688-1.539 1.181l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.507-1.838-.26-1.539-1.181l1.519-4.674a1 1 0 00-.325-1.107L2.283 9.491c-.783-.57-.381-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"></path></svg>
-                        <h3 class="text-xl font-semibold text-apple-black mb-2">Competitive Leaderboards</h3>
-                        <p class="text-apple-gray">Compete against players worldwide and climb the ranks to prove your bullet-hell prowess.</p>
-                    </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-2">Power-Ups & Abilities</h3>
+                    <p>Collect powerful upgrades and unlock special abilities to turn the tide of battle in your favor.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-2">Global Leaderboards</h3>
+                    <p>Compete with players worldwide and prove your skills to climb to the top of the Bullet Barrage ranks.</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-12 md:py-16 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-apple-black mb-8">Master the BulletBarrage: Tips and Strategies</h2>
-                <p class="text-lg leading-relaxed mb-6">To truly excel in BulletBarrage, understanding the mechanics of bullet patterns and character abilities is crucial. Each level presents new challenges, requiring players to adapt their strategies on the fly. Focus on movement and evasion first, as avoiding damage is paramount in bullet-hell games. Experiment with different character builds to find the one that best suits your playstyle.</p>
-                <p class="text-lg leading-relaxed mb-6">Beyond dodging, actively seeking power-ups and utilizing your character's ultimate ability at opportune moments can turn the tide of battle. Keep an eye on the enemy's attack patterns; often, there are small windows of opportunity to deal significant damage. Practice makes perfect, and with each attempt, you'll find yourself improving your reflexes and understanding of the game's intricate design.</p>
+        <hr class="my-8 border-t border-gray-300">
 
-                <h3 class="text-2xl md:text-3xl font-semibold text-apple-black mb-4">Why Play BulletBarrage?</h3>
-                <ul class="list-disc list-inside text-lg leading-relaxed space-y-2 mb-6">
-                    <li><span class="font-medium">Free to Play:</span> Jump into the action without any cost.</li>
-                    <li><span class="font-medium">Browser-Based:</span> No downloads, play directly in your web browser.</li>
-                    <li><span class="font-medium">Addictive Gameplay:</span> Prepare for hours of challenging and rewarding fun.</li>
-                    <li><span class="font-medium">Regular Updates:</span> New content, characters, and levels coming soon!</li>
-                </ul>
-
-                <h3 class="text-2xl md:text-3xl font-semibold text-apple-black mb-4">Mobile and PC Compatibility</h3>
-                <p class="text-lg leading-relaxed">BulletBarrage is designed with responsiveness in mind, ensuring a seamless gaming experience whether you're playing on a desktop PC, laptop, tablet, or smartphone. Our optimized controls and adaptive interface guarantee smooth gameplay across all devices, allowing you to enjoy the bullet-hell action anytime, anywhere.</p>
-            </div>
+        <section class="mb-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Play?</h2>
+            <p class="text-lg mb-6">Join the action now and see how long you can survive the Bullet Barrage!</p>
+            <a href="#top" class="button-primary">Play Bullet Barrage Now!</a>
         </section>
     </main>
 
-    <footer class="apple-dark-blue text-white py-8">
-        <div class="container mx-auto px-6 text-center text-sm md:text-base">
-            <p>&copy; <span id="current-year"></span> BulletBarrage. All rights reserved.</p>
-            <p class="mt-2">Disclaimer: This is a fan-made website for demonstration purposes. Game content belongs to their respective owners.</p>
-            <div class="mt-4">
-                <a href="#" class="text-white hover:underline mx-2">Privacy Policy</a>
-                <span class="mx-1">|</span>
-                <a href="#" class="text-white hover:underline mx-2">Terms of Service</a>
-            </div>
-        </div>
+    <footer class="bg-gray-100 dark:bg-gray-900 text-center py-6 text-gray-600 dark:text-gray-400">
+        <p>&copy; 2025 Bullet Barrage. All rights reserved.</p>
+        <p>Managed by [Your Company Name/Developer Name]</p>
     </footer>
-
-    <script>
-        // Set current year for copyright
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
